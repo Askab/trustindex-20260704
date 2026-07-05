@@ -49,7 +49,11 @@ class ReviewRepository extends ServiceEntityRepository implements IReviewReposit
 
     public function delete(int $id): void
     {
-        $this->remove($this->find($id));
+        $entity = $this->find($id);
+
+        if ($entity !== null) {
+            $this->getEntityManager()->remove($entity);
+        }
     }
 
     public function getStatistics(string $searchQuery = ''): array
