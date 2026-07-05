@@ -22,6 +22,13 @@ interface IReviewService
     public function getReviewById(int $id): ?Review;
 
     /**
+     * Get reviews by company name
+     * @param string $companyName
+     * @return array
+     */
+    public function getReviewsByCompanyName(string $companyName): array;
+
+    /**
      * Create a review
      * @param FormInterface $form
      * @return void

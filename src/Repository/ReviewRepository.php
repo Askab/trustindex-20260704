@@ -2,14 +2,16 @@
 
 namespace App\Repository;
 
+use App\Repository\Interfaces\IReviewRepository;
 use App\Entity\Review;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Review>
  */
-class ReviewRepository extends ServiceEntityRepository
+class ReviewRepository extends ServiceEntityRepository implements IReviewRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -24,6 +26,11 @@ class ReviewRepository extends ServiceEntityRepository
     public function getReviewById(int $id): ?Review
     {
         return $this->find($id);
+    }
+
+    public function findByCompanyName(string $companyName): array
+    {
+        return $this->findBy(['company_name' => $companyName]);
     }
 
     public function save(Review $entity, bool $flush = false): void
@@ -49,6 +56,7 @@ class ReviewRepository extends ServiceEntityRepository
     {
         $builder = $this->createQueryBuilder('r')
                     ->select('
+                        r.id,
                         r.company_name, 
                         COUNT(r.rating) as count, 
                         AVG(r.rating) as average'

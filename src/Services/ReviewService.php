@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Services\Interfaces\IReviewService;
 use App\Entity\Review;
 use App\Form\ReviewType;
-use App\Repository\ReviewRepository;
+use App\Repository\Interfaces\IReviewRepository;
 
 use Symfony\Component\Form\FormInterface;
 
@@ -13,7 +13,7 @@ class ReviewService implements IReviewService
 {
 
     public function __construct(
-        protected ReviewRepository $reviewRepository, 
+        protected IReviewRepository $reviewRepository, 
     ) {}
 
     /**
@@ -33,6 +33,16 @@ class ReviewService implements IReviewService
     public function getReviewById(int $id): ?Review
     {
         return $this->reviewRepository->getReviewById($id);
+    }
+
+    /**
+     * Get reviews by company name
+     * @param string $companyName
+     * @return array
+     */
+    public function getReviewsByCompanyName(string $companyName): array
+    {
+        return $this->reviewRepository->findByCompanyName($companyName);
     }
 
     /**

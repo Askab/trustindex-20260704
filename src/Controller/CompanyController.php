@@ -26,6 +26,27 @@ final class CompanyController extends AbstractController
     }
 
     #[Route(
+        '/companies/{companyName}/show', 
+        name: 'app_companies_show', 
+        methods: ['GET']
+    )]
+    public function show(string $companyName): Response
+    {
+        $companyName = filter_var($companyName, FILTER_SANITIZE_STRING);
+
+        if (empty($companyName)) {
+            return $this->redirectToRoute('app_companies');
+        }
+
+        $reviews = $this->reviewService->getReviewsByCompanyName($companyName);
+
+        return $this->render('company/show.html.twig', [
+            'companyName' => $companyName,
+            'reviews' => $reviews
+        ]);
+    }
+
+    #[Route(
         '/companies/search/', 
         name: 'app_companies_search', 
         methods: ['GET'],
