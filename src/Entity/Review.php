@@ -17,15 +17,19 @@ class Review
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Please enter a company name.')]
     private ?string $company_name = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Assert\Range(min: 1, max: 5)]
     private ?int $rating = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Please enter a review.')]
     private ?string $review_text = null;
 
     #[ORM\Column(length: 150)]
+    #[Assert\NotBlank(message: 'Please enter an email.')]
     #[Assert\Email(
         message: 'The email {{ value }} is not a valid email.',
     )]
