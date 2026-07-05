@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Services\Interfaces\IReviewService;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -20,6 +21,30 @@ final class CompanyController extends AbstractController
         $companies = $this->reviewService->getStatistics();
 
         return $this->render('company/index.html.twig', [
+            'companies' => $companies
+        ]);
+    }
+
+    #[Route(
+        '/companies/search/', 
+        name: 'app_companies_search', 
+        methods: ['GET'],
+    )]
+    public function search(Request $request): Response
+    {
+        $q = $request->query->get('q');
+
+        //Sanitize
+        $q = filter_var($q, FILTER_SANITIZE_STRING);
+
+        if (empty($q)) {
+            return $this->redirectToRoute('app_companies');
+        }
+
+        $companies = $this->reviewService->searchCompanies($q);
+
+        return $this->render('company/index.html.twig', [
+            'q' => $q,
             'companies' => $companies
         ]);
     }

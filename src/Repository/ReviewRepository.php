@@ -45,18 +45,30 @@ class ReviewRepository extends ServiceEntityRepository
         $this->remove($this->find($id));
     }
 
-    public function getStatistics(): array
+    public function getStatistics(string $searchQuery = ''): array
     {
-        return $this->createQueryBuilder('r')
+        $builder = $this->createQueryBuilder('r')
                     ->select('
                         r.company_name, 
                         COUNT(r.rating) as count, 
                         AVG(r.rating) as average'
                     )
                     ->groupBy('r.company_name')
-                    ->orderBy('average', 'DESC')
-                    ->getQuery()
-                    ->getResult();
+                    ->orderBy('average', 'DESC');
+        
+        // Search
+        if(! empty($searchQuery)) {
+            $builder
+                ->where('r.company_name LIKE :q')
+                ->setParameter('q', "%$searchQuery%");
+        }
+
+        return $builder->getQuery()->getResult();
+    }
+
+    public function searchCompanies(string $q): array
+    {
+        return $this->getStatistics($q);
     }
 
     //    /**

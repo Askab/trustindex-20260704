@@ -34,4 +34,11 @@ interface IReviewService
      * @return array
      */
     public function getStatistics(): array;
+
+    /**
+     * Search companies
+     * @param string $q
+     * @return array
+     */
+    public function searchCompanies(string $q): array;
 }

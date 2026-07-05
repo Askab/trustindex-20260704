@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block page_title %}
+    <h1 class="text-center">Write a review!</h1>
+{% endblock %}
+
 {% block body %}
 
     {% for message in app.flashes('error') %}

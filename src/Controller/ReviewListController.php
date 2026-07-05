@@ -14,7 +14,7 @@ final class ReviewListController extends AbstractController
         private IReviewService $reviewService
     ){}
 
-    #[Route('/review/list', name: 'app_review_list')]
+    #[Route('/', name: 'app_review_list')]
     public function index(): Response
     {
         $reviews = $this->reviewService->getReviews();

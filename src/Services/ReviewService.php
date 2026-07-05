@@ -63,4 +63,14 @@ class ReviewService implements IReviewService
     {
         return $this->reviewRepository->getStatistics();
     }
+
+    /**
+     * Search companies
+     * @param string $q
+     * @return array
+     */
+    public function searchCompanies(string $q): array
+    {
+        return $this->reviewRepository->searchCompanies($q);
+    }
 }
