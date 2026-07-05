@@ -16,6 +16,35 @@ class ReviewRepository extends ServiceEntityRepository
         parent::__construct($registry, Review::class);
     }
 
+    public function getAll(): array
+    {
+        return $this->findAll();
+    }
+
+    public function getReviewById(int $id): ?Review
+    {
+        return $this->find($id);
+    }
+
+    public function save(Review $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function update(Review $entity, bool $flush = false): void
+    {
+        $this->save($entity, $flush);
+    }
+
+    public function delete(int $id): void
+    {
+        $this->remove($this->find($id));
+    }
+
     //    /**
     //     * @return Review[] Returns an array of Review objects
     //     */

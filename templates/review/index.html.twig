@@ -1,5 +1,11 @@
 {{ include('frame/header.html.twig') }}
 
+{% for message in app.flashes('error') %}
+    <div class="flash-error">
+        {{ message }}
+    </div>
+{% endfor %}
+
 {% block body %}
     <div class="container">
         <div class="row">
@@ -9,7 +15,17 @@
         </div>
         <div class="row">
             <div class="col-12">
-                {{ form(form) }}
+                {{ form_start(form) }}
+
+                    {{ form_widget(form) }}
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold shadow-sm">
+                            <i class="bi bi-send-fill me-2"></i>Submit Review
+                        </button>
+                    </div>
+                    
+                {{ form_end(form) }}
             </div>
         </div>
     </div>

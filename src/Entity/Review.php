@@ -6,6 +6,8 @@ use App\Repository\ReviewRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
 class Review
 {
@@ -24,6 +26,9 @@ class Review
     private ?string $review_text = null;
 
     #[ORM\Column(length: 150)]
+    #[Assert\Email(
+        message: 'The email {{ value }} is not a valid email.',
+    )]
     private ?string $author_email = null;
 
     #[ORM\Column]

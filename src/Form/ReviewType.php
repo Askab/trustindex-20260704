@@ -13,15 +13,18 @@ class ReviewType extends AbstractType
     {
         $builder
             ->add('company_name')
-            ->add('rating')
-            ->add('review_text')
-            ->add('author_email')
-            /*->add('created_at', null, [
-                'widget' => 'single_text',
+            ->add('rating', options: [
+                'attr' => [
+                    'min' => 1,
+                    'max' => 5
+                ]
             ])
-            ->add('updated_at', null, [
-                'widget' => 'single_text',
-            ])*/
+            ->add('review_text')
+            ->add('author_email', options: [
+                'attr' => [
+                    'type' => 'email'
+                ]
+            ])
         ;
     }
 
