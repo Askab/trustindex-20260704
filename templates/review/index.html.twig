@@ -1,12 +1,13 @@
-{{ include('frame/header.html.twig') }}
-
-{% for message in app.flashes('error') %}
-    <div class="flash-error">
-        {{ message }}
-    </div>
-{% endfor %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
+
+    {% for message in app.flashes('error') %}
+        <div class="flash-error">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -24,13 +25,9 @@
                             <i class="bi bi-send-fill me-2"></i>Submit Review
                         </button>
                     </div>
-                    
+
                 {{ form_end(form) }}
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block footer %}
-    {{ include('frame/footer.html.twig') }}
 {% endblock %}

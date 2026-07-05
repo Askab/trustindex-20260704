@@ -16,6 +16,30 @@ class ReviewService implements IReviewService
         protected ReviewRepository $reviewRepository, 
     ) {}
 
+    /**
+     * Get all the reviews
+     * @return array
+     */
+    public function getReviews(): array
+    {
+        return $this->reviewRepository->getAll();
+    }
+
+    /**
+     * Get a Review by ID
+     * @param int $id
+     * @return Review|null
+     */
+    public function getReviewById(int $id): ?Review
+    {
+        return $this->reviewRepository->getReviewById($id);
+    }
+
+    /**
+     * Create a review
+     * @param FormInterface $form
+     * @return void
+     */
     public function createReview(FormInterface $form): void
     {
         /**

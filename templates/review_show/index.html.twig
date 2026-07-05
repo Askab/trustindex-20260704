@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container">
+
+        {# Review basic data #}
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">#</th>
+                <td>{{ review.id }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Company Name</th>
+                <td>{{ review.companyName }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ review.rating|star_rating }}</td>
+            </tr>
+            <tr>
+                <th>Created At</th>
+                <td>{{ review.createdAt|date('Y-m-d') }}</td>
+            </tr>
+        </table>
+
+        {# Review Text #}
+        <div>
+            <h2>Review Text</h2>
+            <p>{{ review.reviewText }}</p>
+        </div>
+    </div>
+
+{% endblock %}

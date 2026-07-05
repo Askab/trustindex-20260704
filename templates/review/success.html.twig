@@ -1,4 +1,4 @@
-{{ include('frame/header.html.twig') }}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <div class="container">
@@ -8,8 +8,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block footer %}
-    {{ include('frame/footer.html.twig') }}
 {% endblock %}
