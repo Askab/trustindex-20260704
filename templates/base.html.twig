@@ -21,23 +21,19 @@
         <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
     </head>
-    <body>
+    <body class="d-flex flex-column h-100 bg-light">
+
         {% block header %}
             {% include 'components/navigation.html.twig' %}
         {% endblock %}
 
-        {% block body %}{% endblock %}
+        <main class="flex-grow-1 container my-5">
+            {% block body %}{% endblock %}
+        </main>
 
         {% block footer %}
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <p>Copyright &copy; 2026</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            {% include 'components/footer.html.twig' %}
         {% endblock %}
+
     </body>
 </html>

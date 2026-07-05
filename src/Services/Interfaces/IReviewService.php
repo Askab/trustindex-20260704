@@ -27,4 +27,11 @@ interface IReviewService
      * @return void
      */
     public function createReview(FormInterface $form): void;
+
+    /**
+     * Get statistics
+     * Grouped by company
+     * @return array
+     */
+    public function getStatistics(): array;
 }

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <h1>Company statistics</h1>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <tr>
+                        <th scope="col">Company Name</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Number of Reviews</th>
+                    </tr>
+                    {% for company in companies %}
+                        <tr>
+                            <td>{{ company.company_name }}</td>
+                            <td>{{ company.average|star_rating }}</td>
+                            <td>{{ company.count }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -53,4 +53,14 @@ class ReviewService implements IReviewService
 
         $this->reviewRepository->save($review, true);
     }
+
+    /**
+     * Get statistics
+     * Grouped by company
+     * @return array
+     */
+    public function getStatistics(): array
+    {
+        return $this->reviewRepository->getStatistics();
+    }
 }
