@@ -102,3 +102,17 @@ php -S 127.0.0.1:8000 -t public
 | `app_companies`               | `/companies`                       | List companies with statistics     |
 | `app_companies_show`          | `/companies/{companyName}/show`    | Show reviews for a company         |
 | `app_companies_search`        | `/companies/search/?q=`            | Search companies by name           |
+
+## Work hours
+
+| Task                       | Time          |
+| ---------------------------|---------------|
+| `Enviroment + Migrations`  | ~ 1 hour      |
+| `New Review + Form`        | ~ 1 hour      |
+| `List reviews`             | ~ 30 minutes  |
+| `Review details page`      | ~ 30 minutes  |
+| `Company Statistics`       | ~ 30 minutes  |
+| `Company search by name`   | ~ 20 minutes  |
+| `Rating star Twig plugin`  | ~ 30 minutes  |
+| `Translations`             | ~ 40 minutes  |
+| `Claude Pro tests (checked!)` | ~ 20 minutes |
