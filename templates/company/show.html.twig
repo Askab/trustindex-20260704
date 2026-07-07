@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block page_title %}
-    <h1 class="text-center">Reviews for {{ companyName }}</h1>
+    <h1 class="text-center">{{ "company.review_for"|trans }} {{ companyName }}</h1>
 {% endblock %}
 
 {% block body %}
@@ -12,21 +12,21 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Rating</th>
-                <th scope="col">Review</th>
-                <th scope="col">Created At</th>
-                <th scope="col">Actions</th>
+                <th scope="col">{{ "common.rating"|trans }}</th>
+                <th scope="col">{{ "common.review"|trans }}</th>
+                <th scope="col">{{ "common.created_at"|trans }}</th>
+                <th scope="col">{{ "common.actions"|trans }}</th>
             </tr>
         </thead>
         <tbody>
             {% for review in reviews %}
                 <tr>
-                    <td>{{ review.rating|star_rating }}</td>
-                    <td>{{ review.reviewText }}</td>
+                    <td>{{ component('Rating', {rating: review.rating}) }}</td>
+                    <td><span class="review-table-span">{{ review.reviewText }}</span></td>
                     <td>{{ review.createdAt|date('Y-m-d') }}</td>
                     <td>
                         <a href="/review/{{ review.id }}/show" class="btn btn-primary">
-                            Show
+                            {{ "common.show"|trans }}
                         </a>
                     </td>
                 </tr>

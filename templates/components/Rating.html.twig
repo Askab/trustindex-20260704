@@ -1,0 +1,12 @@
+<span class="
+    rating-stars
+    {% if rating < 3 %}
+        low-star-rating
+    {% elseif rating < 5 %}
+        medium-star-rating
+    {% else %}
+        high-star-rating
+    {% endif %}
+">
+    {{ rating|star_rating }}
+</span>

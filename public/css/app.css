@@ -1,0 +1,29 @@
+
+.review-table-span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100px; /* your width */
+    display: block;
+    overflow: hidden
+}
+
+/**
+* Rating
+*/
+.rating-stars {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.high-star-rating {
+    background: linear-gradient(145deg, #FFDF00 0%, #D4AF37 35%, #8B6508 100%);
+}
+
+.medium-star-rating {
+    background: linear-gradient(145deg, #f3730a 0%, #e06806 35%, #f54500 100%);
+}
+
+.low-star-rating {
+    background: linear-gradient(145deg, #ff6767 0%, #ff4848 35%, #fa0000 100%);
+}

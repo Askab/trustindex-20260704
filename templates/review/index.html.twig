@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block page_title %}
-    <h1 class="text-center">Write a review!</h1>
+    <h1 class="text-center">{{ "review_form.write_a_review"|trans }}!</h1>
 {% endblock %}
 
 {% block body %}
@@ -26,7 +26,7 @@
 
                     <div class="d-grid mt-4">
                         <button type="submit" class="btn btn-primary btn-lg fw-bold shadow-sm">
-                            <i class="bi bi-send-fill me-2"></i>Submit Review
+                            <i class="bi bi-send-fill me-2"></i>{{ "review_form.submit_review"|trans }}
                         </button>
                     </div>
 

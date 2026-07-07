@@ -23,8 +23,8 @@
             {% for review in reviews %}
                 <tr>
                     <td>{{ review.companyName }}</td>
-                    <td>{{ review.rating|star_rating }}</td>
-                    <td>{{ review.reviewText }}</td>
+                    <td>{{ component('Rating', {rating: review.rating}) }}</td>
+                    <td><span class="review-table-span">{{ review.reviewText }}</span></td>
                     <td>{{ review.createdAt|date('Y-m-d') }}</td>
                     <td>
                         <a href="/review/{{ review.id }}/show" class="btn btn-primary">

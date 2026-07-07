@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block page_title %}
-    <h1 class="text-center">Review (#{{ review.id }})</h1>
+    <h1 class="text-center">{{ "common.review"|trans }} (#{{ review.id }})</h1>
 {% endblock %}
 
 {% block body %}
@@ -11,7 +11,7 @@
         {# Back button #}
         <div class="d-grid mt-4">
             <a onclick="history.back()" class="btn btn-primary btn-lg fw-bold shadow-sm">
-                <i class="bi bi-arrow-left-circle-fill me-2"></i>Back
+                <i class="bi bi-arrow-left-circle-fill me-2"></i>{{ "common.back"|trans }}
             </a>
         </div>
 
@@ -22,26 +22,26 @@
                 <td>{{ review.id }}</td>
             </tr>
             <tr>
-                <th scope="col">Company Name</th>
+                <th scope="col">{{ "common.company"|trans }}</th>
                 <td>{{ review.companyName }}</td>
             </tr>
             <tr>
-                <th>Rating</th>
-                <td>{{ review.rating|star_rating }}</td>
+                <th>{{ "common.rating"|trans }}</th>
+                <td>{{ component('Rating', {rating: review.rating}) }}</td>
             </tr>
             <tr>
-                <th>Reviewer email</th>
-                <td>{{ review.authorEmail }}</td>
+                <th>{{ "common.reviewer_email"|trans }}</th>
+                <td><a href="mailto:{{ review.authorEmail }}">{{ review.authorEmail }}</a></td>
             </tr>
             <tr>
-                <th>Created At</th>
+                <th>{{ "common.created_at"|trans }}</th>
                 <td>{{ review.createdAt|date('Y-m-d') }}</td>
             </tr>
         </table>
 
         {# Review Text #}
         <div>
-            <h2>Review Text</h2>
+            <h2>{{ "common.review"|trans }}</h2>
             <p>{{ review.reviewText }}</p>
         </div>
     </div>

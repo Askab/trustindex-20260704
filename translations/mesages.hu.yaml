@@ -1,0 +1,24 @@
+common:
+    company: Szervezet
+    rating: Értékelés
+    review: Vélemény
+    reviewer_email: Véleményező email címe
+    number_of_reviews: Vélemények száma
+    created_at: Dátum
+    actions: Műveletek
+    show: Megtekintés
+    back: Vissza
+
+company:
+    review_for: Vélemények a céghez
+    
+header:
+    list_reviews: Vélemények listája
+    review_form: Vélemény űrlap
+    company_statistics: Cégstatisztikák
+    search: Keresés
+    
+review_form:
+    write_a_review: Írjon véleményt
+    submit_review: Vélemény elküldése
+    success: Sikeres beküldés!

@@ -11,18 +11,18 @@
             <div class="col-12">
                 <table class="table table-striped">
                     <tr>
-                        <th scope="col">Company Name</th>
-                        <th scope="col">Rating</th>
-                        <th scope="col">Number of Reviews</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">{{ "common.company"|trans }}</th>
+                        <th scope="col">{{ "common.rating"|trans }}</th>
+                        <th scope="col">{{ "common.number_of_reviews"|trans }}</th>
+                        <th scope="col">{{ "common.actions"|trans }}</th>
                     </tr>
                     {% for company in companies %}
                         <tr>
                             <td>{{ company.company_name }}</td>
-                            <td>{{ company.average|star_rating }}</td>
+                            <td>{{ component('Rating', {rating: company.average}) }}</td>
                             <td>{{ company.count }}</td>
                             <td>
-                                <a href="/companies/{{ company.company_name }}/show" class="btn btn-primary">Show</a>
+                                <a href="/companies/{{ company.company_name }}/show" class="btn btn-primary">{{ "common.show"|trans }}</a>
                             </td>
                         </tr>
                     {% endfor %}

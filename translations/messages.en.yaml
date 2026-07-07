@@ -1,0 +1,24 @@
+common:
+    company: Company
+    rating: Rating
+    review: Review
+    reviewer_email: Author email
+    number_of_reviews: Number of reviews
+    created_at: Created at
+    actions: Actions
+    show: Show
+    back: Back
+
+company:
+    review_for: Review for
+    
+header:
+    list_reviews: Review list
+    review_form: Review form
+    company_statistics: Company statistics
+    search: Search
+    
+review_form:
+    write_a_review: Write a review
+    submit_review: Submit review
+    success: Your review has been submitted
